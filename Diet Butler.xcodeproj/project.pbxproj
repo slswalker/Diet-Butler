@@ -19,6 +19,7 @@
 		B9E5FA6C1B5B479E00A58A49 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA6B1B5B479E00A58A49 /* Ingredient.swift */; };
 		B9E5FA6E1B5B47AD00A58A49 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA6D1B5B47AD00A58A49 /* Recipe.swift */; };
 		B9E5FA701B5B47FA00A58A49 /* NutritionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA6F1B5B47FA00A58A49 /* NutritionConstants.swift */; };
+		B9E5FA721B5B6E1100A58A49 /* mealPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA711B5B6E1100A58A49 /* mealPickerTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		B9E5FA6B1B5B479E00A58A49 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ingredient.swift; path = Model/Ingredient.swift; sourceTree = "<group>"; };
 		B9E5FA6D1B5B47AD00A58A49 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = Model/Recipe.swift; sourceTree = "<group>"; };
 		B9E5FA6F1B5B47FA00A58A49 /* NutritionConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NutritionConstants.swift; path = Model/NutritionConstants.swift; sourceTree = "<group>"; };
+		B9E5FA711B5B6E1100A58A49 /* mealPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mealPickerTableViewController.swift; path = "View Controllers/mealPickerTableViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				B9E5FA641B5B2B8200A58A49 /* DayTableViewController.swift */,
 				B9E5FA661B5B3E3300A58A49 /* WeekTableViewController.swift */,
+				B9E5FA711B5B6E1100A58A49 /* mealPickerTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			files = (
 				B9E5FA671B5B3E3300A58A49 /* WeekTableViewController.swift in Sources */,
 				B9E5FA701B5B47FA00A58A49 /* NutritionConstants.swift in Sources */,
+				B9E5FA721B5B6E1100A58A49 /* mealPickerTableViewController.swift in Sources */,
 				B9E5FA651B5B2B8200A58A49 /* DayTableViewController.swift in Sources */,
 				B9E5FA6C1B5B479E00A58A49 /* Ingredient.swift in Sources */,
 				B9E5FA6E1B5B47AD00A58A49 /* Recipe.swift in Sources */,
