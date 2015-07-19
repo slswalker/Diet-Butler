@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		B9E5FA331B5B250900A58A49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA321B5B250900A58A49 /* AppDelegate.swift */; };
-		B9E5FA351B5B250900A58A49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA341B5B250900A58A49 /* ViewController.swift */; };
 		B9E5FA381B5B250900A58A49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E5FA361B5B250900A58A49 /* Main.storyboard */; };
 		B9E5FA3B1B5B250A00A58A49 /* Diet_Butler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA391B5B250A00A58A49 /* Diet_Butler.xcdatamodeld */; };
 		B9E5FA3D1B5B250A00A58A49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E5FA3C1B5B250A00A58A49 /* Assets.xcassets */; };
 		B9E5FA401B5B250A00A58A49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E5FA3E1B5B250A00A58A49 /* LaunchScreen.storyboard */; };
 		B9E5FA4B1B5B250A00A58A49 /* Diet_ButlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA4A1B5B250A00A58A49 /* Diet_ButlerTests.swift */; };
 		B9E5FA561B5B250A00A58A49 /* Diet_ButlerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA551B5B250A00A58A49 /* Diet_ButlerUITests.swift */; };
+		B9E5FA651B5B2B8200A58A49 /* DayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA641B5B2B8200A58A49 /* DayTableViewController.swift */; };
+		B9E5FA671B5B3E3300A58A49 /* WeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA661B5B3E3300A58A49 /* WeekTableViewController.swift */; };
+		B9E5FA6C1B5B479E00A58A49 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA6B1B5B479E00A58A49 /* Ingredient.swift */; };
+		B9E5FA6E1B5B47AD00A58A49 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA6D1B5B47AD00A58A49 /* Recipe.swift */; };
+		B9E5FA701B5B47FA00A58A49 /* NutritionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA6F1B5B47FA00A58A49 /* NutritionConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,6 @@
 /* Begin PBXFileReference section */
 		B9E5FA2F1B5B250900A58A49 /* Diet Butler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diet Butler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E5FA321B5B250900A58A49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B9E5FA341B5B250900A58A49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B9E5FA371B5B250900A58A49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B9E5FA3A1B5B250A00A58A49 /* Diet_Butler.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Diet_Butler.xcdatamodel; sourceTree = "<group>"; };
 		B9E5FA3C1B5B250A00A58A49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		B9E5FA511B5B250A00A58A49 /* Diet ButlerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Diet ButlerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E5FA551B5B250A00A58A49 /* Diet_ButlerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet_ButlerUITests.swift; sourceTree = "<group>"; };
 		B9E5FA571B5B250A00A58A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9E5FA641B5B2B8200A58A49 /* DayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayTableViewController.swift; path = "View Controllers/DayTableViewController.swift"; sourceTree = "<group>"; };
+		B9E5FA661B5B3E3300A58A49 /* WeekTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeekTableViewController.swift; path = "View Controllers/WeekTableViewController.swift"; sourceTree = "<group>"; };
+		B9E5FA6B1B5B479E00A58A49 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ingredient.swift; path = Model/Ingredient.swift; sourceTree = "<group>"; };
+		B9E5FA6D1B5B47AD00A58A49 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = Model/Recipe.swift; sourceTree = "<group>"; };
+		B9E5FA6F1B5B47FA00A58A49 /* NutritionConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NutritionConstants.swift; path = Model/NutritionConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +107,11 @@
 		B9E5FA311B5B250900A58A49 /* Diet Butler */ = {
 			isa = PBXGroup;
 			children = (
-				B9E5FA321B5B250900A58A49 /* AppDelegate.swift */,
-				B9E5FA341B5B250900A58A49 /* ViewController.swift */,
-				B9E5FA361B5B250900A58A49 /* Main.storyboard */,
+				B9E5FA6A1B5B46A100A58A49 /* AppDelegate */,
+				B9E5FA691B5B464A00A58A49 /* Storyboards */,
+				B9E5FA681B5B463700A58A49 /* Models */,
+				B9E5FA631B5B2A2400A58A49 /* ViewControllers */,
 				B9E5FA3C1B5B250A00A58A49 /* Assets.xcassets */,
-				B9E5FA3E1B5B250A00A58A49 /* LaunchScreen.storyboard */,
 				B9E5FA411B5B250A00A58A49 /* Info.plist */,
 				B9E5FA391B5B250A00A58A49 /* Diet_Butler.xcdatamodeld */,
 			);
@@ -126,6 +134,42 @@
 				B9E5FA571B5B250A00A58A49 /* Info.plist */,
 			);
 			path = "Diet ButlerUITests";
+			sourceTree = "<group>";
+		};
+		B9E5FA631B5B2A2400A58A49 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B9E5FA641B5B2B8200A58A49 /* DayTableViewController.swift */,
+				B9E5FA661B5B3E3300A58A49 /* WeekTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B9E5FA681B5B463700A58A49 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B9E5FA6F1B5B47FA00A58A49 /* NutritionConstants.swift */,
+				B9E5FA6B1B5B479E00A58A49 /* Ingredient.swift */,
+				B9E5FA6D1B5B47AD00A58A49 /* Recipe.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		B9E5FA691B5B464A00A58A49 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B9E5FA361B5B250900A58A49 /* Main.storyboard */,
+				B9E5FA3E1B5B250A00A58A49 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		B9E5FA6A1B5B46A100A58A49 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				B9E5FA321B5B250900A58A49 /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9E5FA351B5B250900A58A49 /* ViewController.swift in Sources */,
+				B9E5FA671B5B3E3300A58A49 /* WeekTableViewController.swift in Sources */,
+				B9E5FA701B5B47FA00A58A49 /* NutritionConstants.swift in Sources */,
+				B9E5FA651B5B2B8200A58A49 /* DayTableViewController.swift in Sources */,
+				B9E5FA6C1B5B479E00A58A49 /* Ingredient.swift in Sources */,
+				B9E5FA6E1B5B47AD00A58A49 /* Recipe.swift in Sources */,
 				B9E5FA3B1B5B250A00A58A49 /* Diet_Butler.xcdatamodeld in Sources */,
 				B9E5FA331B5B250900A58A49 /* AppDelegate.swift in Sources */,
 			);
@@ -485,6 +533,7 @@
 				B9E5FA5C1B5B250A00A58A49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B9E5FA5D1B5B250A00A58A49 /* Build configuration list for PBXNativeTarget "Diet ButlerTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +542,7 @@
 				B9E5FA5F1B5B250A00A58A49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B9E5FA601B5B250A00A58A49 /* Build configuration list for PBXNativeTarget "Diet ButlerUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +551,7 @@
 				B9E5FA621B5B250A00A58A49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
