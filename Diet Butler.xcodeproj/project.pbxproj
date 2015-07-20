@@ -19,7 +19,8 @@
 		B9E5FA6C1B5B479E00A58A49 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA6B1B5B479E00A58A49 /* Ingredient.swift */; };
 		B9E5FA6E1B5B47AD00A58A49 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA6D1B5B47AD00A58A49 /* Recipe.swift */; };
 		B9E5FA701B5B47FA00A58A49 /* NutritionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA6F1B5B47FA00A58A49 /* NutritionConstants.swift */; };
-		B9E5FA721B5B6E1100A58A49 /* mealPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA711B5B6E1100A58A49 /* mealPickerTableViewController.swift */; };
+		B9ECF8A31B5C5CBA0027D9F8 /* ItemNotebook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9ECF8A21B5C5CBA0027D9F8 /* ItemNotebook.storyboard */; };
+		B9ECF8A71B5C5F050027D9F8 /* ItemNotebookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ECF8A61B5C5F050027D9F8 /* ItemNotebookTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,8 @@
 		B9E5FA6B1B5B479E00A58A49 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ingredient.swift; path = Model/Ingredient.swift; sourceTree = "<group>"; };
 		B9E5FA6D1B5B47AD00A58A49 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = Model/Recipe.swift; sourceTree = "<group>"; };
 		B9E5FA6F1B5B47FA00A58A49 /* NutritionConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NutritionConstants.swift; path = Model/NutritionConstants.swift; sourceTree = "<group>"; };
-		B9E5FA711B5B6E1100A58A49 /* mealPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mealPickerTableViewController.swift; path = "View Controllers/mealPickerTableViewController.swift"; sourceTree = "<group>"; };
+		B9ECF8A21B5C5CBA0027D9F8 /* ItemNotebook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ItemNotebook.storyboard; path = Storyboards/ItemNotebook.storyboard; sourceTree = "<group>"; };
+		B9ECF8A61B5C5F050027D9F8 /* ItemNotebookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemNotebookTableViewController.swift; path = "View Controllers/ItemNotebookTableViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,9 +143,9 @@
 		B9E5FA631B5B2A2400A58A49 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B9E5FA641B5B2B8200A58A49 /* DayTableViewController.swift */,
 				B9E5FA661B5B3E3300A58A49 /* WeekTableViewController.swift */,
-				B9E5FA711B5B6E1100A58A49 /* mealPickerTableViewController.swift */,
+				B9E5FA641B5B2B8200A58A49 /* DayTableViewController.swift */,
+				B9ECF8A61B5C5F050027D9F8 /* ItemNotebookTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				B9E5FA361B5B250900A58A49 /* Main.storyboard */,
+				B9ECF8A21B5C5CBA0027D9F8 /* ItemNotebook.storyboard */,
 				B9E5FA3E1B5B250A00A58A49 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -280,6 +283,7 @@
 			files = (
 				B9E5FA401B5B250A00A58A49 /* LaunchScreen.storyboard in Resources */,
 				B9E5FA3D1B5B250A00A58A49 /* Assets.xcassets in Resources */,
+				B9ECF8A31B5C5CBA0027D9F8 /* ItemNotebook.storyboard in Resources */,
 				B9E5FA381B5B250900A58A49 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,12 +311,12 @@
 			files = (
 				B9E5FA671B5B3E3300A58A49 /* WeekTableViewController.swift in Sources */,
 				B9E5FA701B5B47FA00A58A49 /* NutritionConstants.swift in Sources */,
-				B9E5FA721B5B6E1100A58A49 /* mealPickerTableViewController.swift in Sources */,
 				B9E5FA651B5B2B8200A58A49 /* DayTableViewController.swift in Sources */,
 				B9E5FA6C1B5B479E00A58A49 /* Ingredient.swift in Sources */,
 				B9E5FA6E1B5B47AD00A58A49 /* Recipe.swift in Sources */,
 				B9E5FA3B1B5B250A00A58A49 /* Diet_Butler.xcdatamodeld in Sources */,
 				B9E5FA331B5B250900A58A49 /* AppDelegate.swift in Sources */,
+				B9ECF8A71B5C5F050027D9F8 /* ItemNotebookTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

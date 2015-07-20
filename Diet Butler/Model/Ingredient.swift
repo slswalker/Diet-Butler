@@ -11,11 +11,12 @@ import UIKit
 class Ingredient: NSObject {
 
 	var name: String
+	var brand: String = ""
 	var nutrition: Nutrition
 	var size: Double
 	var unit: ServingUnit
 
-	static var ingredientList: [String: Ingredient] = [:]
+	static var ingredientList: [Ingredient] = []
 	class func makeIngredients() {
 		// Egg
 		let eggN = Nutrition(calories: 81, protein: 7.8, fat: 5.5, carbs: 0.3)
@@ -28,15 +29,19 @@ class Ingredient: NSObject {
 		let cheeseN = Nutrition(calories: 90, protein: 3, fat: 5, carbs: 3)
 		let cheese = Ingredient(name: "Cheese", nutrition: cheeseN, size: 1, unit: .Slice)
 
-		ingredientList = ["Egg": egg, "Toast": toast, "Cheese": cheese]
+		ingredientList = [egg, toast, cheese]
 	}
 
 	class func addIngredient(ingredient: Ingredient) {
-		self.ingredientList[ingredient.name] = ingredient
+		self.ingredientList.append(ingredient)
 	}
 
 	class func ingredient(name: String) -> Ingredient? {
-		return ingredientList[name]
+		var ingredient: Ingredient? = nil
+		if let index = ingredientList.indexOf({$0.name == name}) {
+			ingredient = ingredientList[index]
+		}
+		return ingredient
 	}
 
 	init(name: String, nutrition: Nutrition, size: Double, unit: ServingUnit) {
@@ -53,5 +58,10 @@ class Ingredient: NSObject {
 		self.nutrition = Nutrition(calories: otherNutrition.calories * multiplier, protein: otherNutrition.protein * multiplier, fat: otherNutrition.fat * multiplier, carbs: otherNutrition.protein)
 		self.size = amount
 		self.unit = baseIngredient.unit
+	}
+
+	func simpleDescription() -> String {
+		let b = (brand != "") ? brand : name
+		return "\(b), \(size) \(unit.stringValue()), \(nutrition.calories) calories"
 	}
 }

@@ -59,4 +59,11 @@ class Recipe: NSObject {
 
 		self.nutrition = Nutrition(calories: calories, protein: protein, fat: fat, carbs: carbs)
 	}
+
+	func simpleDescription() -> String {
+		if let calories = nutrition?.calories {
+			return "\(servingSize) serving size, \(calories) calories"
+		}
+		return "\(servingSize) serving size"
+	}
 }
