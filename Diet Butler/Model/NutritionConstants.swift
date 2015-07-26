@@ -37,6 +37,29 @@ enum ServingUnit {
 		}
 		return value
 	}
+    
+    static func unitAtIndex(index: Int) -> ServingUnit {
+        var value: ServingUnit = .Milliliters
+        switch index {
+        case 1: value = .Cups
+        case 2: value = .Quarts
+        case 3: value = .Liter
+        case 4: value = .Teaspoon
+        case 5: value = .Tablespoon
+        case 6: value = .Scoop
+        case 7: value = .Pot
+            // Weight
+        case 8: value = .Grams
+        case 9: value = .Pounds
+            // Other
+        case 10: value = .Piece
+        case 11: value = .Whole
+        case 12: value = .Slice
+        default:
+            break
+        }
+        return value
+    }
 }
 
 class Nutrition: NSObject {

@@ -9,14 +9,16 @@
 import UIKit
 
 protocol AttributeSelectionUpdateDelegate: class {
-    func attributeSelector(attributeSelector selector:AttributeSelectionTextField, withValue value: String)
+    func pickerViewBecomeFirstResponder(pickerView: UIPickerView, fromtextField attributeTextField: AttributeSelectionTextField)
 }
 
 class AttributeSelectionTextField: UITextField, UITextFieldDelegate {
     
     var maxCharacterCount: Int = 100
+    weak var pickerView: UIPickerView? = nil
+    weak var selectionDelegate: AttributeSelectionUpdateDelegate? = nil
     
-    var isRequired: Bool = false {
+    var isRequired: Bool = true {
         didSet {
             if oldValue != isRequired {
                 placeholder = isRequired ? "Required" : "Optional"
@@ -41,6 +43,14 @@ class AttributeSelectionTextField: UITextField, UITextFieldDelegate {
     }
     
     // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        if (pickerView != nil) {
+            selectionDelegate?.pickerViewBecomeFirstResponder(pickerView!, fromtextField: self)
+            return false
+        }
+        return true
+    }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         return text?.characters.count > maxCharacterCount ? false : true
