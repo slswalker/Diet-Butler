@@ -29,8 +29,8 @@ class Recipe: Item {
 		recipeList.append(ecRecipe)
 	}
     
-    init(withName name: String, ingredients: [Ingredient], servingSize: Double) {
-        super.init(withName: name)
+    convenience init(withName name: String, ingredients: [Ingredient], servingSize: Double) {
+        self.init(withName: name)
         self.ingredients = ingredients
         self.nutrition.size = servingSize
         self.calculateNutrition()

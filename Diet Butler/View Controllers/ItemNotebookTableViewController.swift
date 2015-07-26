@@ -9,26 +9,37 @@
 import UIKit
 
 
-
 class ItemNotebookTableViewController: UITableViewController {
-
-    var returnsItemSelected: Bool = false
     
+    var returnsItemSelected: Bool = false
+    var itemSelected: Item?
 	private var isSectionExpanded: [Bool] = [true, true]
 	private let sectionTitles = ["Ingredients", "Recipes"]
 	private let itemCellIdentifer = "ItemCellIdentifier"
 	private let itemHeaderCellIdentifier = "ItemHeaderCellIdentifier"
 
+    // MARK: - View
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if !returnsItemSelected {
+            self.navigationItem.leftBarButtonItem = nil;
+        }
     }
-
+    
+    @IBAction func unwindFromItemCreation(segue: UIStoryboardSegue) {
+        let source = segue.sourceViewController as! ItemCreatorTableViewController
+        let ingredient = source.ingredient
+        
+        if isSectionExpanded[0] {
+            let indexPath = NSIndexPath(forRow: Ingredient.ingredientList.count, inSection: 0)
+            tableView.beginUpdates()
+            Ingredient.addIngredient(ingredient)
+            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            tableView.endUpdates()
+        } else {
+            Ingredient.addIngredient(ingredient)
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -79,6 +90,16 @@ class ItemNotebookTableViewController: UITableViewController {
 		isSectionExpanded[index!] = !isSectionExpanded[index!]
 		self.tableView.reloadSections(NSIndexSet(index: index!), withRowAnimation: .Fade)
 	}
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // TODO: Present item picker / editor
+        if indexPath.section == 0 {
+            itemSelected = Ingredient.ingredientList[indexPath.row]
+        } else {
+            itemSelected = Recipe.recipeList[indexPath.row]
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

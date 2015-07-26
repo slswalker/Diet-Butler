@@ -88,7 +88,7 @@
                     <navigationItem key="navigationItem" title="Day" id="xbV-Lr-wk4">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="X81-VN-Rl9">
                             <connections>
-                                <segue destination="WHI-Fx-5FO" kind="show" identifier="ItemNotebookStoryboardID" id="2lx-h1-Ens"/>
+                                <segue destination="WHI-Fx-5FO" kind="presentation" identifier="ItemNotebookStoryboardID" modalTransitionStyle="crossDissolve" id="2lx-h1-Ens"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

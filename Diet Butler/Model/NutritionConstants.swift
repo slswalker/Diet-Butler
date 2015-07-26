@@ -39,12 +39,7 @@ enum ServingUnit {
 	}
 }
 
-struct Entry {
-	var ingredient: Ingredient?
-	var recipe: Recipe?
-}
-
-struct Nutrition {
+class Nutrition: NSObject {
 	var calories: Double = 0
 	var protein: Double = 0
 	var fat: Double = 0
@@ -52,6 +47,16 @@ struct Nutrition {
     
     var unit: ServingUnit = .Piece
     var size: Double = 0
+    
+    convenience init(calories: Double, protein: Double, fat: Double, carbs: Double, unit: ServingUnit, size: Double) {
+        self.init()
+        self.calories = calories
+        self.protein = protein
+        self.fat = fat
+        self.carbs = carbs
+        self.unit = unit
+        self.size = size
+    }
 }
 
 

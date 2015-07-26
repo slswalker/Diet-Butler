@@ -15,6 +15,23 @@ class DayTableViewController: UITableViewController {
 	let entryCellIentifier = "EntryCellIentifier"
 	var currentSelectedDay = ""
 
+    @IBAction   func unwindToDayCancel(segue: UIStoryboardSegue) {
+        print("unwindToDayCancel")
+    }
+    
+    @IBAction   func unwindToDayDone(segue: UIStoryboardSegue) {
+        let source = segue.sourceViewController as! ItemNotebookTableViewController
+        if let item = source.itemSelected {
+            tableView.beginUpdates()
+            items.append(item)
+            let indexPath = NSIndexPath(forRow:0 , inSection: 0)
+            let array = [indexPath]
+            tableView.insertRowsAtIndexPaths(array, withRowAnimation: UITableViewRowAnimation.Automatic)
+            tableView.endUpdates()
+        }
+        print("unwindToDayDone")
+    }
+    
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		return 1
 	}
@@ -47,6 +64,7 @@ class DayTableViewController: UITableViewController {
 		if segue.identifier == "ItemNotebookStoryboardID" {
 			let navController = segue.destinationViewController as! UINavigationController
             let nextVC = navController.topViewController as! ItemNotebookTableViewController
+//            let nextVC = segue.destinationViewController as! ItemNotebookTableViewController
             nextVC.returnsItemSelected = true
 		}
 	}
