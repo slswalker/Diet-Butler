@@ -15,6 +15,7 @@ class ItemNotebookTableViewController: UITableViewController {
 	var isSectionExpanded: [Bool] = [true, true]
 	let sectionTitles = ["Ingredients", "Recipes"]
 	let itemCellIdentifer = "ItemCellIdentifier"
+	let itemHeaderCellIdentifier = "ItemHeaderCellIdentifier"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +40,22 @@ class ItemNotebookTableViewController: UITableViewController {
 		} else {
 			return Recipe.recipeList.count
 		}
-    }
+	}
 
-	override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
-		return sectionTitles
+	override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let cell = tableView.dequeueReusableCellWithIdentifier(itemHeaderCellIdentifier)
+		if let recognizers = cell?.contentView.gestureRecognizers {
+			for recognizer in recognizers {
+				cell?.contentView.removeGestureRecognizer(recognizer)
+			}
+		}
+
+		let view = cell?.viewWithTag(99) as! UILabel
+		view.text? = sectionTitles[section]
+		cell?.contentView.tag = section
+		let recognizer = UITapGestureRecognizer(target: self, action: "sectionHeaderTapped:")
+		cell?.contentView.addGestureRecognizer(recognizer)
+		return cell?.contentView
 	}
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -58,6 +71,12 @@ class ItemNotebookTableViewController: UITableViewController {
 		}
         return cell
     }
+
+	func sectionHeaderTapped(recognizer: UITapGestureRecognizer) {
+		let index = recognizer.view?.tag
+		isSectionExpanded[index!] = !isSectionExpanded[index!]
+		self.tableView.reloadSections(NSIndexSet(index: index!), withRowAnimation: .Fade)
+	}
 
     /*
     // Override to support conditional editing of the table view.

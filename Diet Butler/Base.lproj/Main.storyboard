@@ -101,7 +101,9 @@
         <!--ItemNotebook-->
         <scene sceneID="sh8-8r-8s2">
             <objects>
-                <viewControllerPlaceholder storyboardName="ItemNotebook" id="WHI-Fx-5FO" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ItemNotebook" id="WHI-Fx-5FO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="FwN-1N-nd4"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4KU-Pq-hIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1259.5" y="853"/>
