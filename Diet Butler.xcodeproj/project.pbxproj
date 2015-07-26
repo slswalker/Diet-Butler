@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		672C47961B648D9800EB13E0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C47951B648D9800EB13E0 /* Item.swift */; };
 		B9E5FA331B5B250900A58A49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA321B5B250900A58A49 /* AppDelegate.swift */; };
 		B9E5FA381B5B250900A58A49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E5FA361B5B250900A58A49 /* Main.storyboard */; };
 		B9E5FA3B1B5B250A00A58A49 /* Diet_Butler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA391B5B250A00A58A49 /* Diet_Butler.xcdatamodeld */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		672C47951B648D9800EB13E0 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = Model/Item.swift; sourceTree = "<group>"; };
 		B9E5FA2F1B5B250900A58A49 /* Diet Butler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diet Butler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E5FA321B5B250900A58A49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9E5FA371B5B250900A58A49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				B9E5FA6F1B5B47FA00A58A49 /* NutritionConstants.swift */,
 				B9E5FA6B1B5B479E00A58A49 /* Ingredient.swift */,
 				B9E5FA6D1B5B47AD00A58A49 /* Recipe.swift */,
+				672C47951B648D9800EB13E0 /* Item.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9E5FA671B5B3E3300A58A49 /* WeekTableViewController.swift in Sources */,
+				672C47961B648D9800EB13E0 /* Item.swift in Sources */,
 				B9E5FA701B5B47FA00A58A49 /* NutritionConstants.swift in Sources */,
 				B9E5FA651B5B2B8200A58A49 /* DayTableViewController.swift in Sources */,
 				B9E5FA6C1B5B479E00A58A49 /* Ingredient.swift in Sources */,

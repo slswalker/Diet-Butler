@@ -45,10 +45,13 @@ struct Entry {
 }
 
 struct Nutrition {
-	var calories: Double
-	var protein: Double
-	var fat: Double
-	var carbs: Double
+	var calories: Double = 0
+	var protein: Double = 0
+	var fat: Double = 0
+	var carbs: Double = 0
+    
+    var unit: ServingUnit = .Piece
+    var size: Double = 0
 }
 
 

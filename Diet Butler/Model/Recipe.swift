@@ -9,45 +9,49 @@
 
 import UIKit
 
-class Recipe: NSObject {
+class Recipe: Item {
 
 	var ingredients: [Ingredient] = []
-	var name: String
-	var servingSize: Double
-	var nutrition: Nutrition?
 	
 	static var recipeList: [Recipe] = []
 
 	class func makeRecipeList() {
 		// Egg, cheese, toast
-		let ectRecipe = Recipe(name: "Egg cheese and toast", servingSize: 1)
-		ectRecipe.ingredients.append(Ingredient.ingredient("Egg")!)
-		ectRecipe.ingredients.append(Ingredient.ingredient("Toast")!)
-		ectRecipe.ingredients.append(Ingredient.ingredient("Cheese")!)
+        
+        let ingredientsECT = [Ingredient.ingredient("Egg")!, Ingredient.ingredient("Toast")!, Ingredient.ingredient("Cheese")!]
+        let ectRecipe = Recipe(withName: "Egg cheese and toast", ingredients: ingredientsECT, servingSize: 1)
 		recipeList.append(ectRecipe)
 
-		// Egg and cheese
-		let ecRecipe = Recipe(name: "Egg cheese and toast", servingSize: 1)
-		let egg = Ingredient(baseIngredient: Ingredient.ingredient("Egg")! , amount: 4)
-		ecRecipe.ingredients.append(egg)
-		ecRecipe.ingredients.append(Ingredient.ingredient("Cheese")!)
+		// Omelet
+        let ingredientsOmelet = [Ingredient(baseIngredient: Ingredient.ingredient("Egg")! , amount: 4), Ingredient.ingredient("Cheese")!]
+        
+        let ecRecipe = Recipe(withName: "Omelet", ingredients: ingredientsOmelet, servingSize: 1)
 		recipeList.append(ecRecipe)
 	}
-
-	init(name: String, servingSize: Double) {
-		self.name = name
-		self.servingSize = servingSize
-	}
+    
+    init(withName name: String, ingredients: [Ingredient], servingSize: Double) {
+        super.init(withName: name)
+        self.ingredients = ingredients
+        self.nutrition.size = servingSize
+        self.calculateNutrition()
+    }
 	
 	func addIngredient(ingredient: Ingredient, amount: Double) {
 		self.ingredients.append(Ingredient(baseIngredient: ingredient, amount: amount))
+        calculateNutrition()
 	}
+    
+    func addIngredients(ingredients: [Ingredient]) {
+        self.ingredients += ingredients
+        calculateNutrition()
+    }
 
-	func calculateNutrition() {
+    func calculateNutrition() {
 		var calories: Double = 0
 		var protein: Double = 0
 		var fat: Double = 0
 		var carbs: Double = 0
+        let size: Double = nutrition.size
 
 		for ingredient in self.ingredients {
 			let nutrition = ingredient.nutrition
@@ -57,13 +61,10 @@ class Recipe: NSObject {
 			carbs += nutrition.carbs
 		}
 
-		self.nutrition = Nutrition(calories: calories, protein: protein, fat: fat, carbs: carbs)
+        self.nutrition = Nutrition(calories: calories, protein: protein, fat: fat, carbs: carbs, unit: .Piece, size: size)
 	}
 
 	func simpleDescription() -> String {
-		if let calories = nutrition?.calories {
-			return "\(servingSize) serving size, \(calories) calories"
-		}
-		return "\(servingSize) serving size"
+		return "\(nutrition.size) serving size, \(nutrition.calories) calories"
 	}
 }
