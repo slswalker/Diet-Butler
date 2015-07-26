@@ -27,7 +27,7 @@ class Recipe: NSObject {
 		recipeList.append(ectRecipe)
 
 		// Egg and cheese
-		let ecRecipe = Recipe(name: "Egg cheese and toast", servingSize: 1)
+		let ecRecipe = Recipe(name: "Plain Cheese Omelet", servingSize: 1)
 		let egg = Ingredient(baseIngredient: Ingredient.ingredient("Egg")! , amount: 4)
 		ecRecipe.ingredients.append(egg)
 		ecRecipe.ingredients.append(Ingredient.ingredient("Cheese")!)
