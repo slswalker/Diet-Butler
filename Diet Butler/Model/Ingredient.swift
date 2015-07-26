@@ -50,7 +50,7 @@ class Ingredient: Item {
     }
 
 	func simpleDescription() -> String {
-		let b = (brand != "") ? brand : name
-		return "\(b), \(nutrition.size) \(nutrition.unit.stringValue()), \(nutrition.calories) calories"
+		let b = (brand != nil) ? brand : name
+		return "\(b!), \(nutrition.size) \(nutrition.unit.stringValue()), \(nutrition.calories) calories"
 	}
 }

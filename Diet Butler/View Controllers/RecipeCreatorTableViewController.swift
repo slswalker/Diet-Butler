@@ -1,23 +1,15 @@
+
 //
-//  ItemNotebookTableViewController.swift
+//  RecipeCreatorTableViewController.swift
 //  Diet Butler
 //
-//  Created by Samuel Walker on 7/19/15.
+//  Created by Sam Walker on 7/25/15.
 //  Copyright © 2015 Samuel Walker. All rights reserved.
 //
 
 import UIKit
 
-
-
-class ItemNotebookTableViewController: UITableViewController {
-
-    var returnsItemSelected: Bool = false
-    
-	private var isSectionExpanded: [Bool] = [true, true]
-	private let sectionTitles = ["Ingredients", "Recipes"]
-	private let itemCellIdentifer = "ItemCellIdentifier"
-	private let itemHeaderCellIdentifier = "ItemHeaderCellIdentifier"
+class RecipeCreatorTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,56 +21,32 @@ class ItemNotebookTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if (section > 1 || !isSectionExpanded[section]) {return 0}
-		if section == 0 {
-			return Ingredient.ingredientList.count
-		} else {
-			return Recipe.recipeList.count
-		}
-	}
-
-	override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		let cell = tableView.dequeueReusableCellWithIdentifier(itemHeaderCellIdentifier)
-		if let recognizers = cell?.contentView.gestureRecognizers {
-			for recognizer in recognizers {
-				cell?.contentView.removeGestureRecognizer(recognizer)
-			}
-		}
-
-		let view = cell?.viewWithTag(99) as! UILabel
-		view.text? = sectionTitles[section]
-		cell?.contentView.tag = section
-		let recognizer = UITapGestureRecognizer(target: self, action: "sectionHeaderTapped:")
-		cell?.contentView.addGestureRecognizer(recognizer)
-		return cell?.contentView
-	}
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(itemCellIdentifer, forIndexPath: indexPath)
-		if (indexPath.section == 0) {
-			let ingredient = Ingredient.ingredientList[indexPath.row]
-			cell.textLabel?.text = ingredient.name
-			cell.detailTextLabel?.text = ingredient.simpleDescription()
-		} else {
-			let recipe = Recipe.recipeList[indexPath.row]
-			cell.textLabel?.text = recipe.name
-			cell.detailTextLabel?.text = recipe.simpleDescription()
-		}
-        return cell
+        // #warning Incomplete implementation, return the number of rows
+        return 0
     }
 
-	func sectionHeaderTapped(recognizer: UITapGestureRecognizer) {
-		let index = recognizer.view?.tag
-		isSectionExpanded[index!] = !isSectionExpanded[index!]
-		self.tableView.reloadSections(NSIndexSet(index: index!), withRowAnimation: .Fade)
-	}
+    /*
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
 
     /*
     // Override to support conditional editing of the table view.

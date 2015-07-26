@@ -14,7 +14,7 @@ let daySegueIdentifier = "ShowDaySegue"
 
 class WeekTableViewController: UITableViewController {
 
-	var currentSelectedDay = ""
+    var currentSelectedDay = 0
 
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		return 1
@@ -30,19 +30,19 @@ class WeekTableViewController: UITableViewController {
 
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier(dayCellIdentifier, forIndexPath: indexPath)
-		currentSelectedDay = days[indexPath.row]
-		cell.textLabel?.text = currentSelectedDay
+		cell.textLabel?.text = days[indexPath.row]
 		return cell
 	}
 
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        currentSelectedDay = indexPath.row
 		self.performSegueWithIdentifier(daySegueIdentifier, sender: self)
 	}
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == daySegueIdentifier {
 			let nextVC = segue.destinationViewController as! DayTableViewController
-			nextVC.title = currentSelectedDay
+			nextVC.navigationItem.title = days[currentSelectedDay]
 		}
 	}
 }

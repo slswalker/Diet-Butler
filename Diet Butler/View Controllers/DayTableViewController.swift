@@ -11,7 +11,7 @@ import UIKit
 
 class DayTableViewController: UITableViewController {
 
-	var items: [AnyObject] = []
+	var items: [Item] = []
 	let entryCellIentifier = "EntryCellIentifier"
 	var currentSelectedDay = ""
 
@@ -44,9 +44,10 @@ class DayTableViewController: UITableViewController {
 	}
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		if segue.identifier == daySegueIdentifier {
-			let nextVC = segue.destinationViewController as! DayTableViewController
-			nextVC.title = currentSelectedDay
+		if segue.identifier == "ItemNotebookStoryboardID" {
+			let navController = segue.destinationViewController as! UINavigationController
+            let nextVC = navController.topViewController as! ItemNotebookTableViewController
+            nextVC.returnsItemSelected = true
 		}
 	}
 }
