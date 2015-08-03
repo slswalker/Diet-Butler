@@ -12,6 +12,8 @@
 		672C479C1B649BA700EB13E0 /* ItemSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C479B1B649BA700EB13E0 /* ItemSelectorTableViewController.swift */; };
 		672C479E1B649BB900EB13E0 /* RecipePresenterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C479D1B649BB900EB13E0 /* RecipePresenterTableViewController.swift */; };
 		672C47A01B649BCF00EB13E0 /* RecipeCreatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C479F1B649BCF00EB13E0 /* RecipeCreatorTableViewController.swift */; };
+		B90DF9C71B6F4B2400B74375 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90DF9C61B6F4B2400B74375 /* SWRevealViewController.m */; };
+		B90DF9CA1B6F4CEB00B74375 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90DF9C81B6F4CEB00B74375 /* Calendar.storyboard */; };
 		B9E5FA331B5B250900A58A49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA321B5B250900A58A49 /* AppDelegate.swift */; };
 		B9E5FA381B5B250900A58A49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E5FA361B5B250900A58A49 /* Main.storyboard */; };
 		B9E5FA3B1B5B250A00A58A49 /* Diet_Butler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA391B5B250A00A58A49 /* Diet_Butler.xcdatamodeld */; };
@@ -51,6 +53,10 @@
 		672C479B1B649BA700EB13E0 /* ItemSelectorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemSelectorTableViewController.swift; path = "View Controllers/ItemSelectorTableViewController.swift"; sourceTree = "<group>"; };
 		672C479D1B649BB900EB13E0 /* RecipePresenterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipePresenterTableViewController.swift; path = "View Controllers/RecipePresenterTableViewController.swift"; sourceTree = "<group>"; };
 		672C479F1B649BCF00EB13E0 /* RecipeCreatorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeCreatorTableViewController.swift; path = "View Controllers/RecipeCreatorTableViewController.swift"; sourceTree = "<group>"; };
+		B90DF9C41B6F4B2300B74375 /* Diet Butler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Diet Butler-Bridging-Header.h"; sourceTree = "<group>"; };
+		B90DF9C51B6F4B2400B74375 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		B90DF9C61B6F4B2400B74375 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		B90DF9C91B6F4CEB00B74375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Calendar.storyboard; sourceTree = "<group>"; };
 		B9E5FA2F1B5B250900A58A49 /* Diet Butler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diet Butler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E5FA321B5B250900A58A49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9E5FA371B5B250900A58A49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +104,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B90DF9C31B6F4B1000B74375 /* SWRevealController */ = {
+			isa = PBXGroup;
+			children = (
+				B90DF9C51B6F4B2400B74375 /* SWRevealViewController.h */,
+				B90DF9C61B6F4B2400B74375 /* SWRevealViewController.m */,
+				B90DF9C41B6F4B2300B74375 /* Diet Butler-Bridging-Header.h */,
+			);
+			name = SWRevealController;
+			sourceTree = "<group>";
+		};
 		B9E5FA261B5B250900A58A49 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +140,7 @@
 				B9E5FA6A1B5B46A100A58A49 /* AppDelegate */,
 				B9E5FA691B5B464A00A58A49 /* Storyboards */,
 				B9E5FA681B5B463700A58A49 /* Models */,
+				B90DF9C31B6F4B1000B74375 /* SWRevealController */,
 				B9E5FA631B5B2A2400A58A49 /* ViewControllers */,
 				B9E5FA3C1B5B250A00A58A49 /* Assets.xcassets */,
 				B9E5FA411B5B250A00A58A49 /* Info.plist */,
@@ -179,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				B9E5FA361B5B250900A58A49 /* Main.storyboard */,
+				B90DF9C81B6F4CEB00B74375 /* Calendar.storyboard */,
 				B9ECF8A21B5C5CBA0027D9F8 /* ItemNotebook.storyboard */,
 				B9E5FA3E1B5B250A00A58A49 /* LaunchScreen.storyboard */,
 			);
@@ -255,6 +273,7 @@
 		B9E5FA271B5B250900A58A49 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Samuel Walker";
 				TargetAttributes = {
@@ -299,6 +318,7 @@
 				B9E5FA401B5B250A00A58A49 /* LaunchScreen.storyboard in Resources */,
 				B9E5FA3D1B5B250A00A58A49 /* Assets.xcassets in Resources */,
 				B9ECF8A31B5C5CBA0027D9F8 /* ItemNotebook.storyboard in Resources */,
+				B90DF9CA1B6F4CEB00B74375 /* Calendar.storyboard in Resources */,
 				B9E5FA381B5B250900A58A49 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +351,7 @@
 				B9E5FA651B5B2B8200A58A49 /* DayTableViewController.swift in Sources */,
 				B9E5FA6C1B5B479E00A58A49 /* Ingredient.swift in Sources */,
 				B9E5FA6E1B5B47AD00A58A49 /* Recipe.swift in Sources */,
+				B90DF9C71B6F4B2400B74375 /* SWRevealViewController.m in Sources */,
 				672C479A1B649B9700EB13E0 /* ItemCreatorTableViewController.swift in Sources */,
 				B9E5FA3B1B5B250A00A58A49 /* Diet_Butler.xcdatamodeld in Sources */,
 				672C47A01B649BCF00EB13E0 /* RecipeCreatorTableViewController.swift in Sources */,
@@ -372,6 +393,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B90DF9C81B6F4CEB00B74375 /* Calendar.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B90DF9C91B6F4CEB00B74375 /* Base */,
+			);
+			name = Calendar.storyboard;
+			sourceTree = "<group>";
+		};
 		B9E5FA361B5B250900A58A49 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -476,10 +505,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Diet Butler/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swalker.Diet-Butler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Diet Butler/Diet Butler-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -487,10 +519,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Diet Butler/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swalker.Diet-Butler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Diet Butler/Diet Butler-Bridging-Header.h";
 			};
 			name = Release;
 		};

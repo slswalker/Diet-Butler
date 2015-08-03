@@ -13,7 +13,7 @@ class Ingredient: Item {
 	static var ingredientList: [Ingredient] = []
 	class func makeIngredients() {
 		// Egg
-        let eggN = Nutrition(calories: 81, protein: 7.8, fat: 5.5, carbs: 0.3, unit: .Whole, size: 1)
+		let eggN = Nutrition(calories: 81, protein: 7.8, fat: 5.5, carbs: 0.3, unit: .Whole, size: 1)
 		let egg = Ingredient(withName: "Egg")
         egg.nutrition = eggN
 
