@@ -161,7 +161,13 @@
                             <outlet property="delegate" destination="DTr-Mc-oaK" id="Pv9-gH-jUH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Item Notebook" id="Bye-RL-Jbh"/>
+                    <navigationItem key="navigationItem" title="Item Notebook" id="Bye-RL-Jbh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fuk-jD-GhG">
+                            <connections>
+                                <segue destination="oUx-H5-8J7" kind="show" id="Rj7-8l-19H"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSk-wp-cm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

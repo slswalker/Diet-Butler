@@ -28,7 +28,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="xV8-dS-Wpb" kind="custom" identifier="sw_back" customClass="SWRevealViewControllerSegueSetController" id="kaR-sN-Sqh"/>
+                        <segue destination="xV8-dS-Wpb" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="kaR-sN-Sqh"/>
                         <segue destination="Cfh-qX-BY7" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="Xf7-89-AYA"/>
                     </connections>
                 </viewController>

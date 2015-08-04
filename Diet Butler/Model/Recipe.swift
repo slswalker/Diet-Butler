@@ -30,7 +30,8 @@ class Recipe: Item {
 	}
     
     init(withName name: String, ingredients: [Ingredient], servingSize: Double) {
-        super.init(withName: name)
+        super.init()
+        self.name = name
         self.ingredients = ingredients
         self.nutrition.size = servingSize
         self.calculateNutrition()

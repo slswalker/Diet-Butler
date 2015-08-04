@@ -13,8 +13,14 @@ class Item: NSObject {
     var nutrition: Nutrition
     var brand: String? = nil
     
-    init(withName name:String) {
-        self.name = name
+    override init() {
+        self.name = ""
         self.nutrition = Nutrition()
+    }
+    
+    convenience init(withName name:String) {
+        self.init()
+        self.nutrition = Nutrition()
+        self.name = name
     }
 }

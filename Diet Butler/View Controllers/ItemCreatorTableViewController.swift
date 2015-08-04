@@ -8,6 +8,15 @@
 
 import UIKit
 
+public class BaseItemTableViewCell: UITableViewCell {
+    @IBOutlet var label: UILabel!
+}
+
+let attributeCreatorIdentifier = "AttributeCreatorIdentifier"
+public class AttributeCreatorTableViewCell: BaseItemTableViewCell {
+    @IBOutlet var value: AttributeSelectionTextField!
+}
+
 class ItemCreatorTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, AttributeSelectionUpdateDelegate {
     
     @IBOutlet var unitPickerView: UIPickerView!
