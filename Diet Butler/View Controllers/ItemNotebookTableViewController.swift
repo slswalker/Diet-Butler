@@ -21,12 +21,25 @@ class ItemNotebookTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+		if !returnsItemSelected {
+            self.navigationItem.leftBarButtonItem = nil;
+        }
+    }
+    
+    // MARK: - Navigation
+    @IBAction func unwindFromItemCreation(segue: UIStoryboardSegue) {
+        let source = segue.sourceViewController as! ItemCreatorTableViewController
+        let ingredient = source.ingredient
+        
+        if isSectionExpanded[0] {
+            let indexPath = NSIndexPath(forRow: Ingredient.ingredientList.count, inSection: 0)
+            tableView.beginUpdates()
+            Ingredient.addIngredient(ingredient)
+            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            tableView.endUpdates()
+        } else {
+            Ingredient.addIngredient(ingredient)
+        }
     }
 
     // MARK: - Table view data source
@@ -114,15 +127,4 @@ class ItemNotebookTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

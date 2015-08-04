@@ -14,6 +14,8 @@
 		672C47A01B649BCF00EB13E0 /* RecipeCreatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C479F1B649BCF00EB13E0 /* RecipeCreatorTableViewController.swift */; };
 		B90DF9C71B6F4B2400B74375 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90DF9C61B6F4B2400B74375 /* SWRevealViewController.m */; };
 		B90DF9CA1B6F4CEB00B74375 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90DF9C81B6F4CEB00B74375 /* Calendar.storyboard */; };
+		B9783F741B708DC300A96AC1 /* AttributeSelectionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9783F731B708DC300A96AC1 /* AttributeSelectionTextField.swift */; };
+		B9783F761B708E1D00A96AC1 /* DesignConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9783F751B708E1D00A96AC1 /* DesignConstants.swift */; };
 		B9E5FA331B5B250900A58A49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA321B5B250900A58A49 /* AppDelegate.swift */; };
 		B9E5FA381B5B250900A58A49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E5FA361B5B250900A58A49 /* Main.storyboard */; };
 		B9E5FA3B1B5B250A00A58A49 /* Diet_Butler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9E5FA391B5B250A00A58A49 /* Diet_Butler.xcdatamodeld */; };
@@ -57,6 +59,8 @@
 		B90DF9C51B6F4B2400B74375 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		B90DF9C61B6F4B2400B74375 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		B90DF9C91B6F4CEB00B74375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Calendar.storyboard; sourceTree = "<group>"; };
+		B9783F731B708DC300A96AC1 /* AttributeSelectionTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeSelectionTextField.swift; path = Views/AttributeSelectionTextField.swift; sourceTree = "<group>"; };
+		B9783F751B708E1D00A96AC1 /* DesignConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignConstants.swift; path = Model/DesignConstants.swift; sourceTree = "<group>"; };
 		B9E5FA2F1B5B250900A58A49 /* Diet Butler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diet Butler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E5FA321B5B250900A58A49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9E5FA371B5B250900A58A49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +118,14 @@
 			name = SWRevealController;
 			sourceTree = "<group>";
 		};
+		B9783F721B708DAD00A96AC1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B9783F731B708DC300A96AC1 /* AttributeSelectionTextField.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		B9E5FA261B5B250900A58A49 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +149,7 @@
 		B9E5FA311B5B250900A58A49 /* Diet Butler */ = {
 			isa = PBXGroup;
 			children = (
+				B9783F721B708DAD00A96AC1 /* Views */,
 				B9E5FA6A1B5B46A100A58A49 /* AppDelegate */,
 				B9E5FA691B5B464A00A58A49 /* Storyboards */,
 				B9E5FA681B5B463700A58A49 /* Models */,
@@ -184,6 +197,7 @@
 		B9E5FA681B5B463700A58A49 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B9783F751B708E1D00A96AC1 /* DesignConstants.swift */,
 				B9E5FA6F1B5B47FA00A58A49 /* NutritionConstants.swift */,
 				B9E5FA6B1B5B479E00A58A49 /* Ingredient.swift */,
 				B9E5FA6D1B5B47AD00A58A49 /* Recipe.swift */,
@@ -351,6 +365,8 @@
 				B9E5FA651B5B2B8200A58A49 /* DayTableViewController.swift in Sources */,
 				B9E5FA6C1B5B479E00A58A49 /* Ingredient.swift in Sources */,
 				B9E5FA6E1B5B47AD00A58A49 /* Recipe.swift in Sources */,
+				B9783F761B708E1D00A96AC1 /* DesignConstants.swift in Sources */,
+				B9783F741B708DC300A96AC1 /* AttributeSelectionTextField.swift in Sources */,
 				B90DF9C71B6F4B2400B74375 /* SWRevealViewController.m in Sources */,
 				672C479A1B649B9700EB13E0 /* ItemCreatorTableViewController.swift in Sources */,
 				B9E5FA3B1B5B250A00A58A49 /* Diet_Butler.xcdatamodeld in Sources */,
