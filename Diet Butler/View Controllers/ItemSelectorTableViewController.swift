@@ -8,33 +8,76 @@
 
 import UIKit
 
+let TitleCellIdentifier = "TitleCellIdentifier"
+
+let AttributeCellIdentifier = "AttributeCellIdentifer"
+class AttributeTableViewCell: UITableViewCell {
+    @IBOutlet var attribute: UILabel!
+    @IBOutlet var value: UILabel!
+}
+
+let SeparatorCellIdentifier = "SeparatorCellIdentifier"
+class SeparatorTableViewCell: UITableViewCell {
+    
+    @IBOutlet var title: UILabel!
+}
+
 class ItemSelectorTableViewController: UITableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    var ingredient: Ingredient = Ingredient()
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 8
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(attributeCreatorIdentifier, forIndexPath: indexPath) as! AttributeCreatorTableViewCell
+        cell.value.tag = indexPath.row
+        
+        if indexPath.row > 2 {
+            cell.value.keyboardType = UIKeyboardType.DecimalPad
+        } else {
+            cell.value.keyboardType = UIKeyboardType.Default
+        }
+        
+        // Warning: - Not right. Correct to real classes
+        switch indexPath.row {
+        case 0:
+            break
+        case 1:
+            cell.value.isRequired = false
+            cell.label.text = "Brand"
+            break
+        case 2:
+            cell.label.text = "Serving Unit"
+            cell.value.text = ingredient.nutrition.unit.stringValue()
+            break
+        case 3:
+            cell.label.text = "Serving Size"
+            break
+        case 4:
+            cell.label.text = "Calories"
+            break
+        case 5:
+            cell.label.text = "Protein (g)"
+            break
+        case 6:
+            cell.label.text = "Fat (g)"
+            break
+        case 7:
+            cell.label.text = "Carbohydrates (g)"
+            break
+        default:
+            break
+        }
+        
+        return cell
     }
 
     /*

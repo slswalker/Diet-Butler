@@ -24,10 +24,6 @@ class ItemCreatorTableViewController: UITableViewController, UIPickerViewDataSou
     
     var ingredient: Ingredient = Ingredient()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
