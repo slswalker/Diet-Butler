@@ -9,20 +9,25 @@
 import UIKit
 
 
-
 class ItemNotebookTableViewController: UITableViewController {
 
     var returnsItemSelected: Bool = false
+    var itemSelected: Item?
     
 	private var isSectionExpanded: [Bool] = [true, true]
 	private let sectionTitles = ["Ingredients", "Recipes"]
 	private let itemCellIdentifer = "ItemCellIdentifier"
 	private let itemHeaderCellIdentifier = "ItemHeaderCellIdentifier"
+    private let itemSelectionDoneIdentifier = "ItemSelectionDoneIdentifier"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		if !returnsItemSelected {
-            self.navigationItem.leftBarButtonItem = nil;
+            if self.revealViewController() != nil {
+                let menuButton = UIBarButtonItem(image: UIImage(imageLiteral: "menu.png"), style: UIBarButtonItemStyle.Plain, target: self.revealViewController(), action: "revealToggle:")
+                self.navigationItem.leftBarButtonItem = menuButton
+                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            }
         }
     }
     
@@ -64,7 +69,7 @@ class ItemNotebookTableViewController: UITableViewController {
 				cell?.contentView.removeGestureRecognizer(recognizer)
 			}
 		}
-
+        
 		let view = cell?.viewWithTag(99) as! UILabel
 		view.text? = sectionTitles[section]
 		cell?.contentView.tag = section
@@ -92,6 +97,38 @@ class ItemNotebookTableViewController: UITableViewController {
 		isSectionExpanded[index!] = !isSectionExpanded[index!]
 		self.tableView.reloadSections(NSIndexSet(index: index!), withRowAnimation: .Fade)
 	}
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if returnsItemSelected {
+            // TODO: Present item picker / editor
+            if indexPath.section == 0 {
+                itemSelected = Ingredient.ingredientList[indexPath.row]
+            } else {
+                itemSelected = Recipe.recipeList[indexPath.row]
+            }
+            
+            performSegueWithIdentifier(itemSelectionDoneIdentifier, sender: self);
+        } else {
+            // Item Editor?
+        }
+        
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return !returnsItemSelected
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete && !returnsItemSelected {
+            if indexPath.section == 0 {
+                Ingredient.ingredientList.removeAtIndex(indexPath.row)
+            } else {
+                Recipe.recipeList.removeAtIndex(indexPath.row)
+            }
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
