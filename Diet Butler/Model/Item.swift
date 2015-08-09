@@ -23,4 +23,6 @@ class Item: NSObject {
         self.nutrition = Nutrition()
         self.name = name
     }
+    
+    func simpleDescription() -> String {return ""}
 }

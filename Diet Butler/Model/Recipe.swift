@@ -65,7 +65,7 @@ class Recipe: Item {
         self.nutrition = Nutrition(calories: calories, protein: protein, fat: fat, carbs: carbs, unit: .Piece, size: size)
 	}
 
-	func simpleDescription() -> String {
+	override func simpleDescription() -> String {
 		return "\(nutrition.size) serving size, \(nutrition.calories) calories"
 	}
 }

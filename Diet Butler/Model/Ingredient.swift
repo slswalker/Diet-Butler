@@ -49,7 +49,7 @@ class Ingredient: Item {
         self.nutrition = Nutrition(calories: otherNutrition.calories * multiplier, protein: otherNutrition.protein * multiplier, fat: otherNutrition.fat * multiplier, carbs: otherNutrition.protein, unit: otherNutrition.unit, size:  amount)
     }
 
-	func simpleDescription() -> String {
+	override func simpleDescription() -> String {
 		let b = (brand != nil) ? brand : name
 		return "\(b!), \(nutrition.size) \(nutrition.unit.stringValue()), \(nutrition.calories) calories"
 	}
