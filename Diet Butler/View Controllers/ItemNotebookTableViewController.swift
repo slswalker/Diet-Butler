@@ -8,18 +8,32 @@
 
 import UIKit
 
+protocol ItemMadeProtocol {
+    var item: Item? { get set}
+}
 
-class ItemNotebookTableViewController: UITableViewController {
+
+class ItemNotebookTableViewController: UITableViewController, ItemMadeProtocol {
 
     var returnsItemSelected: Bool = false
-    var itemSelected: Item?
+    var item: Item?
     
 	private var isSectionExpanded: [Bool] = [true, true]
 	private let sectionTitles = ["Ingredients", "Recipes"]
+    
 	private let itemCellIdentifer = "ItemCellIdentifier"
 	private let itemHeaderCellIdentifier = "ItemHeaderCellIdentifier"
     private let itemSelectionDoneIdentifier = "ItemSelectionDoneIdentifier"
     private let itemCreatorCellIdentifier = "ItemCreatorCellIdentifier"
+    
+    private let ingredientCreationSegueIdentifier = "IngredientCreationSegueIdentifier"
+    private let ingredientSelectorSegueIdentifier = "IngredientSelectorSegueIdentifier"
+    
+    private let recipeCreationSegueIdentifier = "RecipeCreationSegueIdentifier"
+    private let recipeSelectorSegueIdentifier = "RecipeSelectorSegueIdentifier"
+    
+    private let mealCreationSegueIdentifier = "MealCreationSegueIdentifier"
+    private let mealSelectorSegueIdentifier = "MealSelectorSegueIdentifier"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,10 +111,9 @@ class ItemNotebookTableViewController: UITableViewController {
             } else {
                 cell.textLabel?.text = "Create a new recipe"
             }
-//            cell.detailTextLabel?.text = ""
             return cell
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier(itemCellIdentifer, forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier(itemCellIdentifer, forIndexPath: indexPath) as! ItemSummaryTableViewCell
 
             let index = indexPath.row - 1;
             var item: Item? = nil
@@ -110,8 +123,8 @@ class ItemNotebookTableViewController: UITableViewController {
             } else {
                 item = Recipe.recipeList[index]
             }
-            cell.textLabel?.text = item?.name
-            cell.detailTextLabel?.text = item?.simpleDescription()
+            cell.nameLabel?.text = item?.name
+            cell.summaryLabel?.text = item?.simpleDescription()
             return cell;
         }
     }
@@ -123,27 +136,42 @@ class ItemNotebookTableViewController: UITableViewController {
             self.expandSection(index!)
         } else {
             self.collapseSection(index!)
-//            isSectionExpanded[index!] = !isSectionExpanded[index!]
-//            self.tableView.reloadSections(NSIndexSet(index: index!), withRowAnimation: .Fade)
         }
-        
-		
 	}
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if returnsItemSelected {
-            // TODO: Present item picker / editor
-            if indexPath.section == 0 {
-                itemSelected = Ingredient.ingredientList[indexPath.row]
-            } else {
-                itemSelected = Recipe.recipeList[indexPath.row]
+        if indexPath.row == 0 {
+            switch indexPath.section {
+            case 0:
+                performSegueWithIdentifier(ingredientCreationSegueIdentifier, sender: self)
+                break
+            case 1:
+                performSegueWithIdentifier(recipeCreationSegueIdentifier, sender: self)
+                break
+            case 2:
+                performSegueWithIdentifier(mealCreationSegueIdentifier, sender: self)
+                break
+            default:
+                break
             }
-            
-            performSegueWithIdentifier(itemSelectionDoneIdentifier, sender: self);
+
         } else {
-            // Item Editor?
+            
+            let index = indexPath.row - 1
+            if returnsItemSelected {
+                // TODO: Present item picker / editor
+                if indexPath.section == 0 {
+                    item = Ingredient.ingredientList[index]
+                    performSegueWithIdentifier(ingredientSelectorSegueIdentifier, sender: self)
+                } else {
+                    item = Recipe.recipeList[index]
+                }
+                
+//                performSegueWithIdentifier(itemSelectionDoneIdentifier, sender: self);
+            } else {
+                // Item Presenter?
+            }
         }
-        
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -162,6 +190,12 @@ class ItemNotebookTableViewController: UITableViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationVC = segue.destinationViewController as? ItemSelectorTableViewController {
+            destinationVC.item = item
+        }
+    }
+    
     func expandSection(index: NSInteger) {
         if isSectionExpanded[index] { return }
         
@@ -175,14 +209,12 @@ class ItemNotebookTableViewController: UITableViewController {
         case 0:
             for x in 0...Ingredient.ingredientList.count {
                 let indexPath = NSIndexPath(forRow: x, inSection: index)
-                print(indexPath)
                 indexArray.append(indexPath)
             }
             break
         case 1:
             for x in 0...Recipe.recipeList.count {
                 let indexPath = NSIndexPath(forRow: x, inSection: index)
-                print(indexPath)
                 indexArray.append(indexPath)
             }
             break

@@ -62,11 +62,6 @@ enum ServingUnit {
     }
 }
 
-struct Entry {
-	var ingredient: Ingredient?
-	var recipe: Recipe?
-}
-
 struct Nutrition {
 	var calories: Double = 0
 	var protein: Double = 0
@@ -75,6 +70,18 @@ struct Nutrition {
     
     var unit: ServingUnit = .Piece
     var size: Double = 0
+}
+
+extension Nutrition {
+    init(fromNutrition nutrition: Nutrition, amount: Double) {
+        calories = nutrition.calories * amount
+        protein = nutrition.protein * amount
+        fat = nutrition.fat * amount
+        carbs = nutrition.carbs * amount
+        
+        unit = nutrition.unit
+        size = nutrition.size * amount
+    }
 }
 
 

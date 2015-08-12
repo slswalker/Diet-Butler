@@ -8,131 +8,166 @@
 
 import UIKit
 
-let TitleCellIdentifier = "TitleCellIdentifier"
+class ItemSelectorTableViewController: UITableViewController, ItemMadeProtocol {
 
-let AttributeCellIdentifier = "AttributeCellIdentifer"
-class AttributeTableViewCell: UITableViewCell {
-    @IBOutlet var attribute: UILabel!
-    @IBOutlet var value: UILabel!
-}
-
-let SeparatorCellIdentifier = "SeparatorCellIdentifier"
-class SeparatorTableViewCell: UITableViewCell {
+    var item: Item?
+    var servingSize: Double = 1.0
     
-    @IBOutlet var title: UILabel!
-}
+    private let attributeCreatorIdentifier = "SelectorAttributeCreatorIdentifier"
+    private let attributePresenterIdentifier = "AttributePresenterIdentifier"
+    
+    private weak var caloriesLabel: UILabel?
+    private weak var proteinLabel: UILabel?
+    private weak var fatLabel: UILabel?
+    private weak var carbsLabel: UILabel?
+    
+    @IBOutlet var rightBarButtonItem: UIBarButtonItem!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.title = item!.name
+        rightBarButtonItem.enabled = false
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidAppear:", name: UIKeyboardDidShowNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.sourceViewController == self {
+            item = Ingredient(baseIngredient: (item as! Ingredient), amount: servingSize)
+        }
+    }
 
-class ItemSelectorTableViewController: UITableViewController {
-
-    var ingredient: Ingredient = Ingredient()
+    // for later
+//    func keyboardWillAppear(notification: NSNotification){
+//        if let info: NSDictionary = notification.userInfo,
+//            value: NSValue = info[UIKeyboardFrameEndUserInfoKey] as? NSValue,
+//            rect: CGRect = value.CGRectValue(),
+//            durationValue = info[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber,
+//            animationCurve = info[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+//        {
+//
+//            let curve = animationCurve.integerValue
+//            let curveValue = UIViewAnimationCurve(rawValue: curve)
+//            let duration = durationValue.doubleValue
+//            let minY = min(0, rect.origin.y - (64 + tableView.contentSize.height))
+//            let point = CGPointMake(0, minY)
+//            
+//            UIView.beginAnimations(nil, context: nil)
+//            UIView.setAnimationBeginsFromCurrentState(true)
+//            UIView.setAnimationDuration(duration)
+//            UIView.setAnimationCurve(curveValue!)
+//            tableView.setContentOffset(point, animated: true)
+//            UIView.commitAnimations()
+//        }
+//    }
+    
+    func keyboardDidAppear(notification: NSNotification) {
+        
+        let indexPath = NSIndexPath(forRow: 3, inSection: 1)
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+    }
     
     // MARK: - Table view data source
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return ((section == 0) ? 2 : 4)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(attributeCreatorIdentifier, forIndexPath: indexPath) as! AttributeCreatorTableViewCell
-        cell.value.tag = indexPath.row
-        
-        if indexPath.row > 2 {
+        if (indexPath.section == 0 && indexPath.row == 1) {
+            let cell = tableView.dequeueReusableCellWithIdentifier(attributeCreatorIdentifier, forIndexPath: indexPath) as! AttributeCreatorTableViewCell
+            cell.label.text = "Servings"
             cell.value.keyboardType = UIKeyboardType.DecimalPad
+            return cell
         } else {
-            cell.value.keyboardType = UIKeyboardType.Default
+            let cell = tableView.dequeueReusableCellWithIdentifier(attributePresenterIdentifier, forIndexPath: indexPath) as! AttributePresenterTableViewCell
+            
+            if indexPath.section == 0 {
+                cell.label.text = "Serving Unit"
+                cell.valueLabel.text = item!.nutrition.unit.stringValue()
+                return cell
+            }
+            
+            // Warning: - Not right. Correct to real classes
+            switch indexPath.row {
+            case 0:
+                cell.label.text = "Calories"
+                caloriesLabel = cell.valueLabel
+                break
+            case 1:
+                cell.label.text = "Protein (g)"
+                proteinLabel = cell.valueLabel
+                break
+            case 2:
+                cell.label.text = "Fat (g)"
+                fatLabel = cell.valueLabel
+                break
+            case 3:
+                cell.label.text = "Carbohydrates (g)"
+                carbsLabel = cell.valueLabel
+                break
+            default:
+                break
+            }
+            
+            configureLabelForTag(indexPath.row)
+            
+            return cell
         }
-        
-        // Warning: - Not right. Correct to real classes
-        switch indexPath.row {
+    }
+    
+    
+    @IBAction func editingDidBegin(sender: AnyObject) {
+        let indexPath = NSIndexPath(forRow: 3, inSection: 1)
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+    }
+    
+    @IBAction func editingChanged(sender: AttributeSelectionTextField) {
+        if let stringValue = sender.text,
+            value = Double(stringValue)
+        {
+            rightBarButtonItem.enabled = true
+            if value != servingSize {
+                servingSize = value
+                calculateNutrientInformation()
+            }
+        } else {
+            rightBarButtonItem.enabled = false
+        }
+    }
+    
+    private func calculateNutrientInformation() {
+        for i in 0...3 {
+            configureLabelForTag(i)
+        }
+    }
+    
+    private func configureLabelForTag(tag: Int) {
+        let nutrition = item!.nutrition
+        let ratio = servingSize / nutrition.size
+        switch tag {
         case 0:
+            caloriesLabel!.text = "\(nutrition.calories) | \(nutrition.calories * ratio)"
             break
         case 1:
-            cell.value.isRequired = false
-            cell.label.text = "Brand"
+            proteinLabel!.text = "\(nutrition.protein) | \(nutrition.protein * ratio)"
             break
         case 2:
-            cell.label.text = "Serving Unit"
-            cell.value.text = ingredient.nutrition.unit.stringValue()
+            fatLabel!.text = "\(nutrition.fat) | \(nutrition.fat * ratio)"
             break
         case 3:
-            cell.label.text = "Serving Size"
-            break
-        case 4:
-            cell.label.text = "Calories"
-            break
-        case 5:
-            cell.label.text = "Protein (g)"
-            break
-        case 6:
-            cell.label.text = "Fat (g)"
-            break
-        case 7:
-            cell.label.text = "Carbohydrates (g)"
+            carbsLabel!.text = "\(nutrition.carbs) | \(nutrition.carbs * ratio)"
             break
         default:
             break
         }
-        
-        return cell
     }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

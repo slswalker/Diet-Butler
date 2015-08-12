@@ -36,6 +36,17 @@ class Recipe: Item {
         self.nutrition.size = servingSize
         self.calculateNutrition()
     }
+    
+    convenience init(withRecipe recipe: Recipe, size: Double) {
+        
+        var myIngredients: [Ingredient] = []
+        
+        for ingredient in recipe.ingredients {
+            myIngredients.append(Ingredient(baseIngredient: ingredient, amount: size))
+        }
+        
+        self.init(withName: recipe.name, ingredients: myIngredients, servingSize: size)
+    }
 	
 	func addIngredient(ingredient: Ingredient, amount: Double) {
 		self.ingredients.append(Ingredient(baseIngredient: ingredient, amount: amount))

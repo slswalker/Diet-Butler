@@ -8,20 +8,27 @@
 
 import UIKit
 
-class Item: NSObject {
+class Item {
     var name: String
     var nutrition: Nutrition
     var brand: String? = nil
     
-    override init() {
+    init() {
         self.name = ""
         self.nutrition = Nutrition()
     }
     
     convenience init(withName name:String) {
         self.init()
-        self.nutrition = Nutrition()
+        nutrition = Nutrition()
         self.name = name
+    }
+    
+    convenience init(withItem item: Item) {
+        self.init()
+        nutrition = item.nutrition
+        name = item.name
+        brand = item.brand
     }
     
     func simpleDescription() -> String {return ""}

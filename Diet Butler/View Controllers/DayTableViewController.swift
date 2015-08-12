@@ -19,16 +19,20 @@ class DayTableViewController: UITableViewController {
         print("unwindToDayCancel")
     }
     @IBAction   func unwindToDayDone(segue: UIStoryboardSegue) {
-        let source = segue.sourceViewController as! ItemNotebookTableViewController
-        if let item = source.itemSelected {
-            tableView.beginUpdates()
-            items.append(item)
-            let index = (items.count - 1)
-            let indexPath = NSIndexPath(forRow:index , inSection: 0)
-            let array = [indexPath]
-            tableView.insertRowsAtIndexPaths(array, withRowAnimation: UITableViewRowAnimation.Automatic)
-            tableView.endUpdates()
+        let source = segue.sourceViewController as! ItemMadeProtocol
+        if let item = source.item {
+            addItem(item)
         }
+    }
+    
+    private func addItem(item: Item) {
+        tableView.beginUpdates()
+        items.append(item)
+        let index = (items.count - 1)
+        let indexPath = NSIndexPath(forRow:index , inSection: 0)
+        let array = [indexPath]
+        tableView.insertRowsAtIndexPaths(array, withRowAnimation: UITableViewRowAnimation.Automatic)
+        tableView.endUpdates()
     }
     
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
