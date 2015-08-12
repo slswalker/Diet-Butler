@@ -44,12 +44,14 @@ class Ingredient: Item {
 
     convenience init(baseIngredient: Ingredient, amount: Double) {
         self.init(withName: baseIngredient.name)
-        let multiplier = amount / baseIngredient.nutrition.size
-		let otherNutrition = baseIngredient.nutrition
-        self.nutrition = Nutrition(calories: otherNutrition.calories * multiplier, protein: otherNutrition.protein * multiplier, fat: otherNutrition.fat * multiplier, carbs: otherNutrition.protein, unit: otherNutrition.unit, size:  amount)
+        self.nutrition = Nutrition(fromNutrition: baseIngredient.nutrition, amount: amount)
+    }
+    
+    convenience init(ingredient: Ingredient) {
+        self.init(baseIngredient: ingredient, amount: 1)
     }
 
-	func simpleDescription() -> String {
+	override func simpleDescription() -> String {
 		let b = (brand != nil) ? brand : name
 		return "\(b!), \(nutrition.size) \(nutrition.unit.stringValue()), \(nutrition.calories) calories"
 	}

@@ -8,16 +8,11 @@
 
 import UIKit
 
-public class BaseItemTableViewCell: UITableViewCell {
-    @IBOutlet var label: UILabel!
-}
 
-let attributeCreatorIdentifier = "AttributeCreatorIdentifier"
-public class AttributeCreatorTableViewCell: BaseItemTableViewCell {
-    @IBOutlet var value: AttributeSelectionTextField!
-}
 
 class ItemCreatorTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, AttributeSelectionUpdateDelegate {
+    
+    private let attributeCreatorIdentifier = "CreatorAttributeCreatorIdentifier"
     
     @IBOutlet var unitPickerView: UIPickerView!
     weak var editingAttributeTextField: AttributeSelectionTextField? = nil

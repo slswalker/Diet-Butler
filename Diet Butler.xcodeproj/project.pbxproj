@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		671A44BC1B780629008D8CFB /* ItemSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A44BB1B780629008D8CFB /* ItemSummaryTableViewCell.swift */; };
+		671A44BE1B78272F008D8CFB /* BaseItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A44BD1B78272F008D8CFB /* BaseItemTableViewCell.swift */; };
+		671A44C01B78274C008D8CFB /* AttributeCreatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A44BF1B78274C008D8CFB /* AttributeCreatorTableViewCell.swift */; };
+		671A44C21B78277A008D8CFB /* AttributePresenterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A44C11B78277A008D8CFB /* AttributePresenterTableViewCell.swift */; };
+		671A44C71B7B0D16008D8CFB /* NSString+ValueConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A44C61B7B0D16008D8CFB /* NSString+ValueConversion.swift */; };
 		672C47961B648D9800EB13E0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C47951B648D9800EB13E0 /* Item.swift */; };
 		672C479A1B649B9700EB13E0 /* ItemCreatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C47991B649B9700EB13E0 /* ItemCreatorTableViewController.swift */; };
 		672C479C1B649BA700EB13E0 /* ItemSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C479B1B649BA700EB13E0 /* ItemSelectorTableViewController.swift */; };
@@ -50,6 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		671A44BB1B780629008D8CFB /* ItemSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemSummaryTableViewCell.swift; path = Views/ItemSummaryTableViewCell.swift; sourceTree = "<group>"; };
+		671A44BD1B78272F008D8CFB /* BaseItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseItemTableViewCell.swift; path = Views/BaseItemTableViewCell.swift; sourceTree = "<group>"; };
+		671A44BF1B78274C008D8CFB /* AttributeCreatorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeCreatorTableViewCell.swift; path = Views/AttributeCreatorTableViewCell.swift; sourceTree = "<group>"; };
+		671A44C11B78277A008D8CFB /* AttributePresenterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributePresenterTableViewCell.swift; path = Views/AttributePresenterTableViewCell.swift; sourceTree = "<group>"; };
+		671A44C61B7B0D16008D8CFB /* NSString+ValueConversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+ValueConversion.swift"; sourceTree = "<group>"; };
 		672C47951B648D9800EB13E0 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = Model/Item.swift; sourceTree = "<group>"; };
 		672C47991B649B9700EB13E0 /* ItemCreatorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCreatorTableViewController.swift; path = "View Controllers/ItemCreatorTableViewController.swift"; sourceTree = "<group>"; };
 		672C479B1B649BA700EB13E0 /* ItemSelectorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemSelectorTableViewController.swift; path = "View Controllers/ItemSelectorTableViewController.swift"; sourceTree = "<group>"; };
@@ -108,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		671A44C51B7B0C7E008D8CFB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				671A44C61B7B0D16008D8CFB /* NSString+ValueConversion.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		B90DF9C31B6F4B1000B74375 /* SWRevealController */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +140,10 @@
 			isa = PBXGroup;
 			children = (
 				B9783F731B708DC300A96AC1 /* AttributeSelectionTextField.swift */,
+				671A44BB1B780629008D8CFB /* ItemSummaryTableViewCell.swift */,
+				671A44BD1B78272F008D8CFB /* BaseItemTableViewCell.swift */,
+				671A44BF1B78274C008D8CFB /* AttributeCreatorTableViewCell.swift */,
+				671A44C11B78277A008D8CFB /* AttributePresenterTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -149,6 +171,7 @@
 		B9E5FA311B5B250900A58A49 /* Diet Butler */ = {
 			isa = PBXGroup;
 			children = (
+				671A44C51B7B0C7E008D8CFB /* Extensions */,
 				B9783F721B708DAD00A96AC1 /* Views */,
 				B9E5FA6A1B5B46A100A58A49 /* AppDelegate */,
 				B9E5FA691B5B464A00A58A49 /* Storyboards */,
@@ -362,18 +385,23 @@
 				672C47961B648D9800EB13E0 /* Item.swift in Sources */,
 				672C479E1B649BB900EB13E0 /* RecipePresenterTableViewController.swift in Sources */,
 				B9E5FA701B5B47FA00A58A49 /* NutritionConstants.swift in Sources */,
+				671A44C01B78274C008D8CFB /* AttributeCreatorTableViewCell.swift in Sources */,
 				B9E5FA651B5B2B8200A58A49 /* DayTableViewController.swift in Sources */,
 				B9E5FA6C1B5B479E00A58A49 /* Ingredient.swift in Sources */,
+				671A44BC1B780629008D8CFB /* ItemSummaryTableViewCell.swift in Sources */,
 				B9E5FA6E1B5B47AD00A58A49 /* Recipe.swift in Sources */,
 				B9783F761B708E1D00A96AC1 /* DesignConstants.swift in Sources */,
 				B9783F741B708DC300A96AC1 /* AttributeSelectionTextField.swift in Sources */,
 				B90DF9C71B6F4B2400B74375 /* SWRevealViewController.m in Sources */,
+				671A44BE1B78272F008D8CFB /* BaseItemTableViewCell.swift in Sources */,
 				672C479A1B649B9700EB13E0 /* ItemCreatorTableViewController.swift in Sources */,
 				B9E5FA3B1B5B250A00A58A49 /* Diet_Butler.xcdatamodeld in Sources */,
 				672C47A01B649BCF00EB13E0 /* RecipeCreatorTableViewController.swift in Sources */,
 				B9E5FA331B5B250900A58A49 /* AppDelegate.swift in Sources */,
 				B9ECF8A71B5C5F050027D9F8 /* ItemNotebookTableViewController.swift in Sources */,
 				672C479C1B649BA700EB13E0 /* ItemSelectorTableViewController.swift in Sources */,
+				671A44C21B78277A008D8CFB /* AttributePresenterTableViewCell.swift in Sources */,
+				671A44C71B7B0D16008D8CFB /* NSString+ValueConversion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sam Walker (DKVT89H5D7)";
 				INFOPLIST_FILE = "Diet Butler/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swalker.Diet-Butler";
@@ -536,6 +565,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sam Walker (DKVT89H5D7)";
 				INFOPLIST_FILE = "Diet Butler/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swalker.Diet-Butler";

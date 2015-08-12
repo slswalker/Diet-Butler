@@ -15,6 +15,26 @@ class DayTableViewController: UITableViewController {
 	let entryCellIentifier = "EntryCellIentifier"
 	var currentSelectedDay = ""
 
+    @IBAction   func unwindToDayCancel(segue: UIStoryboardSegue) {
+        print("unwindToDayCancel")
+    }
+    @IBAction   func unwindToDayDone(segue: UIStoryboardSegue) {
+        let source = segue.sourceViewController as! ItemMadeProtocol
+        if let item = source.item {
+            addItem(item)
+        }
+    }
+    
+    private func addItem(item: Item) {
+        tableView.beginUpdates()
+        items.append(item)
+        let index = (items.count - 1)
+        let indexPath = NSIndexPath(forRow:index , inSection: 0)
+        let array = [indexPath]
+        tableView.insertRowsAtIndexPaths(array, withRowAnimation: UITableViewRowAnimation.Automatic)
+        tableView.endUpdates()
+    }
+    
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		return 1
 	}
@@ -39,10 +59,6 @@ class DayTableViewController: UITableViewController {
 		return cell
 	}
 
-	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		self.performSegueWithIdentifier(daySegueIdentifier, sender: self)
-	}
-
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "ItemNotebookStoryboardID" {
 			let navController = segue.destinationViewController as! UINavigationController
@@ -50,4 +66,15 @@ class DayTableViewController: UITableViewController {
             nextVC.returnsItemSelected = true
 		}
 	}
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            self.items.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
 }
