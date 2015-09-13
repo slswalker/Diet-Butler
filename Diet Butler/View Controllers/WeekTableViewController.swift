@@ -22,6 +22,8 @@ class WeekTableViewController: UITableViewController {
 			menuButton.action = "revealToggle:"
 			self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 		}
+        
+        MemoryReporter.reportMemory()
 	}
 
     var currentSelectedDay = 0

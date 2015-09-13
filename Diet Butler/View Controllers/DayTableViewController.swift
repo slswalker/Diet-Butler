@@ -25,6 +25,10 @@ class DayTableViewController: UITableViewController {
         }
     }
     
+    override func viewDidLoad() {
+        MemoryReporter.reportMemory()
+    }
+    
     private func addItem(item: Item) {
         tableView.beginUpdates()
         items.append(item)

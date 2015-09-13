@@ -44,6 +44,7 @@ class ItemNotebookTableViewController: UITableViewController, ItemMadeProtocol {
                 self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             }
         }
+        MemoryReporter.reportMemory()
     }
     
     // MARK: - Navigation

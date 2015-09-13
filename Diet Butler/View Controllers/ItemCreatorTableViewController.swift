@@ -19,6 +19,9 @@ class ItemCreatorTableViewController: UITableViewController, UIPickerViewDataSou
     
     var ingredient: Ingredient = Ingredient()
     
+    override func viewDidLoad() {
+        MemoryReporter.reportMemory()
+    }
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

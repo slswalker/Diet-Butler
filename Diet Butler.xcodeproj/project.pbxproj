@@ -17,6 +17,7 @@
 		672C479C1B649BA700EB13E0 /* ItemSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C479B1B649BA700EB13E0 /* ItemSelectorTableViewController.swift */; };
 		672C479E1B649BB900EB13E0 /* RecipePresenterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C479D1B649BB900EB13E0 /* RecipePresenterTableViewController.swift */; };
 		672C47A01B649BCF00EB13E0 /* RecipeCreatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C479F1B649BCF00EB13E0 /* RecipeCreatorTableViewController.swift */; };
+		67D3F2EE1B9BB1D600D7C996 /* MemoryReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D3F2ED1B9BB1D600D7C996 /* MemoryReporter.m */; };
 		B90DF9C71B6F4B2400B74375 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90DF9C61B6F4B2400B74375 /* SWRevealViewController.m */; };
 		B90DF9CA1B6F4CEB00B74375 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90DF9C81B6F4CEB00B74375 /* Calendar.storyboard */; };
 		B9783F741B708DC300A96AC1 /* AttributeSelectionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9783F731B708DC300A96AC1 /* AttributeSelectionTextField.swift */; };
@@ -65,6 +66,8 @@
 		672C479B1B649BA700EB13E0 /* ItemSelectorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemSelectorTableViewController.swift; path = "View Controllers/ItemSelectorTableViewController.swift"; sourceTree = "<group>"; };
 		672C479D1B649BB900EB13E0 /* RecipePresenterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipePresenterTableViewController.swift; path = "View Controllers/RecipePresenterTableViewController.swift"; sourceTree = "<group>"; };
 		672C479F1B649BCF00EB13E0 /* RecipeCreatorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeCreatorTableViewController.swift; path = "View Controllers/RecipeCreatorTableViewController.swift"; sourceTree = "<group>"; };
+		67D3F2EC1B9BB1D600D7C996 /* MemoryReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryReporter.h; sourceTree = "<group>"; };
+		67D3F2ED1B9BB1D600D7C996 /* MemoryReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoryReporter.m; sourceTree = "<group>"; };
 		B90DF9C41B6F4B2300B74375 /* Diet Butler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Diet Butler-Bridging-Header.h"; sourceTree = "<group>"; };
 		B90DF9C51B6F4B2400B74375 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		B90DF9C61B6F4B2400B74375 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				B9E5FA3C1B5B250A00A58A49 /* Assets.xcassets */,
 				B9E5FA411B5B250A00A58A49 /* Info.plist */,
 				B9E5FA391B5B250A00A58A49 /* Diet_Butler.xcdatamodeld */,
+				67D3F2EC1B9BB1D600D7C996 /* MemoryReporter.h */,
+				67D3F2ED1B9BB1D600D7C996 /* MemoryReporter.m */,
 			);
 			path = "Diet Butler";
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				672C47961B648D9800EB13E0 /* Item.swift in Sources */,
 				672C479E1B649BB900EB13E0 /* RecipePresenterTableViewController.swift in Sources */,
 				B9E5FA701B5B47FA00A58A49 /* NutritionConstants.swift in Sources */,
+				67D3F2EE1B9BB1D600D7C996 /* MemoryReporter.m in Sources */,
 				671A44C01B78274C008D8CFB /* AttributeCreatorTableViewCell.swift in Sources */,
 				B9E5FA651B5B2B8200A58A49 /* DayTableViewController.swift in Sources */,
 				B9E5FA6C1B5B479E00A58A49 /* Ingredient.swift in Sources */,
